@@ -1,39 +1,44 @@
 @echo off
-echo Installing Code Prompt Optimizer...
+echo Installing Code Prompt Optimizer (Python Version)...
 echo.
 
-:: Check if Python is installed
+REM Check if Python is installed
 python --version > nul 2>&1
 if errorlevel 1 (
-    echo Python is not installed! Please install Python 3.7 or newer from python.org
-    echo Press any key to exit...
-    pause > nul
+    echo Error: Python is not installed or not in PATH
+    echo Please install Python 3.7 or newer from python.org
+    echo Make sure to check "Add Python to PATH" during installation
+    pause
     exit /b 1
 )
 
-:: Create and activate virtual environment
-echo Creating virtual environment...
-python -m venv venv
-call venv\Scripts\activate.bat
-
-:: Install required packages
+REM Install requirements
 echo Installing required packages...
-python -m pip install --upgrade pip
 pip install -r requirements.txt
+if errorlevel 1 (
+    echo Error: Failed to install requirements
+    pause
+    exit /b 1
+)
 
-:: Install NLTK data
+REM Initialize tiktoken (this will download required encodings)
+echo Initializing tiktoken...
+python -c "import tiktoken; tiktoken.encoding_for_model('gpt-3.5-turbo')"
+if errorlevel 1 (
+    echo Warning: Failed to initialize tiktoken encodings
+    echo You may need to run the application once to download required files
+)
+
+REM Initialize NLTK data
 echo Downloading NLTK data...
 python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
-
-:: Create executable
-echo Creating executable...
-pyinstaller --onefile --windowed --icon=icon.ico --name=CodePromptOptimizer token_script_v2.py
-
-:: Copy executable to Desktop
-echo Copying executable to Desktop...
-copy /Y "dist\CodePromptOptimizer.exe" "%USERPROFILE%\Desktop\"
+if errorlevel 1 (
+    echo Warning: Failed to download NLTK data
+    echo You may need to run the application once to download required files
+)
 
 echo.
-echo Installation complete! You can find CodePromptOptimizer.exe on your Desktop.
-echo Press any key to exit...
-pause > nul
+echo Installation complete!
+echo To run the application, use: python token_script_v2.py
+echo.
+pause 

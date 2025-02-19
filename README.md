@@ -12,19 +12,30 @@ A simple tool with a window (GUI) to help you make prompts and code files shorte
 
 ### Quick Download
 Visit our [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases) to download:
-- **Windows Standalone**: Download `CodePromptOptimizer_Standalone.zip` for a ready-to-run version
+- **Windows Installer**: Download `CodePromptOptimizer_Setup.exe` for a proper Windows installation
+- **Windows Standalone**: Download `CodePromptOptimizer_Standalone.zip` for a portable version
 - **Python Package**: Download `CodePromptOptimizer_Python.zip` if you prefer running with Python
 
 ### Installation Options
 
-#### Option 1: Standalone Installation (Windows)
-1. Download `CodePromptOptimizer_Standalone.zip` from the [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases)
+#### Option 1: Windows Installer (Recommended)
+1. Download `CodePromptOptimizer_Setup.exe` from the [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases)
+2. Run the installer
+3. Follow the installation wizard
+4. Find the application in:
+   - Start Menu
+   - Desktop shortcut
+   - Programs and Features
+
+#### Option 2: Standalone Installation (Windows)
+1. Download `CodePromptOptimizer_Standalone.zip`
 2. Extract the ZIP file
 3. Run `CodePromptOptimizer.exe`
-   - No Python or additional software required!
+   - No installation required
+   - Portable version
 
-#### Option 2: Python Installation (All Platforms)
-1. Download `CodePromptOptimizer_Python.zip` from the [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases)
+#### Option 3: Python Installation (All Platforms)
+1. Download `CodePromptOptimizer_Python.zip`
 2. Make sure you have Python 3.7+ installed
 3. Extract the ZIP file
 4. Open a terminal in the extracted folder

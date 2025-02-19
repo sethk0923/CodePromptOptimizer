@@ -54,7 +54,15 @@ def get_encoding(model: str = DEFAULT_MODEL) -> tiktoken.Encoding:
     try:
         return tiktoken.encoding_for_model(model)
     except KeyError:
-        return tiktoken.encoding_for_model("gpt-3.5-turbo")
+        try:
+            # Fallback to cl100k_base encoding if model-specific encoding fails
+            return tiktoken.get_encoding("cl100k_base")
+        except Exception as e:
+            logging.error(f"Failed to get tiktoken encoding: {str(e)}")
+            messagebox.showerror("Error", 
+                "Failed to initialize token counter. Please ensure you have the latest version of tiktoken installed:\n"
+                "pip install --upgrade tiktoken")
+            raise
 
 def tokenize(text: str, model: str = DEFAULT_MODEL) -> int:
     """Tokenizes text using the specified model."""

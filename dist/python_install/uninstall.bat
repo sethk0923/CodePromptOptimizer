@@ -1,17 +1,13 @@
 @echo off
-echo Uninstalling Code Prompt Optimizer...
+echo Uninstalling Code Prompt Optimizer (Python Version)...
+echo.
 
-:: Remove executable from Desktop
-del "%USERPROFILE%\Desktop\CodePromptOptimizer.exe"
-
-:: Remove virtual environment
-rmdir /s /q venv
-
-:: Remove build directories
-rmdir /s /q build
-rmdir /s /q dist
+REM Uninstall packages
+echo Uninstalling packages...
+pip uninstall -y -r requirements.txt
 
 echo.
 echo Uninstallation complete!
-echo Press any key to exit...
-pause > nul
+echo You can now delete this directory.
+echo.
+pause 
