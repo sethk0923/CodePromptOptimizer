@@ -1,0 +1,23 @@
+*.pyc
+__pycache__/
+build/
+dist/
+*.spec
+*.pkg
+*.exe
+!icon.ico
+*.zip
+.env
+.venv/
+venv/
+ENV/
+env/
+# Keep these files for documentation
+!python_install_readme.txt
+!standalone_install_readme.txt
+!installer_readme.txt
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+.DS_Store 

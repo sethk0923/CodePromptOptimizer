@@ -8,6 +8,48 @@ A simple tool with a window (GUI) to help you make prompts and code files shorte
 - **Step-by-Step**: Breaks your prompt and code into small pieces (up to 500 tokens each), with a total limit of 130,000 tokens.
 - **Easy to Use**: Works on Windows and macOS with a clickable icon—no tricky setup needed.
 
+## Download and Installation
+
+### Quick Download
+Visit our [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases) to download:
+- **Windows Standalone**: Download `CodePromptOptimizer_Standalone.zip` for a ready-to-run version
+- **Python Package**: Download `CodePromptOptimizer_Python.zip` if you prefer running with Python
+
+### Installation Options
+
+#### Option 1: Standalone Installation (Windows)
+1. Download `CodePromptOptimizer_Standalone.zip` from the [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases)
+2. Extract the ZIP file
+3. Run `CodePromptOptimizer.exe`
+   - No Python or additional software required!
+
+#### Option 2: Python Installation (All Platforms)
+1. Download `CodePromptOptimizer_Python.zip` from the [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases)
+2. Make sure you have Python 3.7+ installed
+3. Extract the ZIP file
+4. Open a terminal in the extracted folder
+5. Run: `pip install -r requirements.txt`
+6. Start the app: `python token_script_v2.py`
+
+## Development Setup
+
+If you want to contribute or modify the code:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/sethk0923/CodePromptOptimizer.git
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run the Development Version**:
+   ```bash
+   python token_script_v2.py
+   ```
+
 ## Prerequisites
 - **Python 3.7 or Newer**: A free program you need on your computer to run this tool (we'll help you get it).
 - **Extra Tools**: Some small add-ons (listed in `requirements.txt`) that we'll install for you.
@@ -37,55 +79,6 @@ This repository uses Git Large File Storage (Git LFS) to handle large files. To 
 
 3. **Alternative Download**:
    If you don't want to use Git LFS, you can download the release packages directly from the [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases).
-
-## Installation
-
-### Option 1: Run as Python Script
-1. **Get the Files**:
-   - Download this folder or just the `code_prompt_optimizer.py` file to your computer (e.g., save it on your Desktop).
-2. **Add the Helpers**:
-   - Open a program called "Terminal" (on Windows, search for "Command Prompt" or "cmd"; on macOS, search for "Terminal" in Spotlight).
-   - Type this and press Enter:
-     ```bash
-     pip install -r requirements.txt
-     ```
-   - If it says "pip is not recognized," you need Python first. Go to [python.org](https://www.python.org/downloads/), download the latest version, and install it (check "Add Python to PATH" during setup). Then try again.
-3. **Start the Tool**:
-   - In the same Terminal, go to where you saved the file by typing:
-     ```bash
-     cd Desktop
-     ```
-     (Change "Desktop" to wherever you saved it, like `cd Documents`.)
-   - Then type and press Enter:
-     ```bash
-     python code_prompt_optimizer.py
-     ```
-   - A window should pop up—that's the tool!
-
-### Option 2: Build and Run as Executable
-1. **Add a Builder Tool**:
-   - In Terminal, type and press Enter:
-     ```bash
-     pip install pyinstaller
-     ```
-2. **Make the Clickable File**:
-   - **Windows**:
-     - Put an icon file (e.g., `icon.ico`) in the same folder as `code_prompt_optimizer.py`. You can find free icons online (search "free .ico files").
-     - In Terminal, type:
-       ```bash
-       pyinstaller --onefile --icon=icon.ico --windowed code_prompt_optimizer.py
-       ```
-     - Wait a minute—it's working! When done, look in a new folder called `dist` for `code_prompt_optimizer.exe`.
-   - **macOS**:
-     - Put an icon file (e.g., `icon.icns`) in the folder. Search online for "free .icns files" if you need one.
-     - In Terminal, type:
-       ```bash
-       pyinstaller --windowed --icon=icon.icns code_prompt_optimizer.py
-       ```
-     - When done, find `code_prompt_optimizer.app` in the `dist` folder.
-3. **Move and Click**:
-   - Drag the `.exe` (Windows) or `.app` (macOS) to your Desktop.
-   - Double-click it to open the tool—no Terminal needed!
 
 ## Usage
 
