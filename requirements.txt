@@ -1,5 +1,16 @@
 tiktoken==0.8.0
 nltk==3.8.1
-pyinstaller==6.3.0  # Optional, for building executable
-requests==2.31.0  # For downloading resources
-tk==0.1.0  # For GUI components 
+requests==2.31.0
+tk==0.1.0
+setuptools>=65.5.1
+wheel>=0.40.0
+python-dotenv==1.0.0  # For environment variables
+pathlib==1.0.1  # For path handling
+typing-extensions>=4.7.1  # For type hints
+pyinstaller==6.3.0  # For creating executables
+pillow>=10.0.0  # For image handling in tkinter
+certifi>=2023.7.22  # For SSL certificates
+charset-normalizer>=3.2.0  # For text encoding
+idna>=3.4  # For internationalized domain names
+urllib3>=2.0.4  # For HTTP requests
+packaging>=23.1  # For package version handling 
