@@ -1,3 +1,0 @@
-tiktoken==0.7.0
-nltk==3.8.1
-pyinstaller==6.3.0  # Optional, for building executable 

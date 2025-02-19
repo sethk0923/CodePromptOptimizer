@@ -44,7 +44,8 @@ def main():
     setup(
         name="code-prompt-optimizer",
         version="1.0.0",
-        packages=find_packages(),
+        packages=find_packages(where="src"),
+        package_dir={"": "src"},
         install_requires=[
             'tiktoken==0.8.0',
             'nltk==3.8.1',
@@ -81,6 +82,13 @@ def main():
                 'code-prompt-optimizer=token_script_v2:main',
             ],
         },
+        package_data={
+            'code_prompt_optimizer': [
+                'assets/*',
+                'docs/*',
+            ],
+        },
+        include_package_data=True,
     )
 
 if __name__ == "__main__":
@@ -106,6 +114,6 @@ if __name__ == "__main__":
     print("Verifying installation...")
     if verify_installation():
         print("\nInstallation completed successfully!")
-        print("To start the application, run: python token_script_v2.py")
+        print("To start the application, run: python -m code_prompt_optimizer")
     else:
         print("\nInstallation completed with warnings. Please check the error messages above.") 
