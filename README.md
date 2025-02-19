@@ -12,6 +12,32 @@ A simple tool with a window (GUI) to help you make prompts and code files shorte
 - **Python 3.7 or Newer**: A free program you need on your computer to run this tool (we'll help you get it).
 - **Extra Tools**: Some small add-ons (listed in `requirements.txt`) that we'll install for you.
 
+## Git LFS
+This repository uses Git Large File Storage (Git LFS) to handle large files. To clone and use this repository:
+
+1. **Install Git LFS**:
+   - Download from [git-lfs.github.com](https://git-lfs.github.com/)
+   - Or use package managers:
+     ```bash
+     # Windows (with Chocolatey)
+     choco install git-lfs
+
+     # macOS (with Homebrew)
+     brew install git-lfs
+     ```
+
+2. **Clone the Repository**:
+   ```bash
+   # Initialize Git LFS
+   git lfs install
+
+   # Clone the repository
+   git clone https://github.com/sethk0923/CodePromptOptimizer.git
+   ```
+
+3. **Alternative Download**:
+   If you don't want to use Git LFS, you can download the release packages directly from the [Releases page](https://github.com/sethk0923/CodePromptOptimizer/releases).
+
 ## Installation
 
 ### Option 1: Run as Python Script
