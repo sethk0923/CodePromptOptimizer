@@ -151,3 +151,34 @@ ERROR:root:Error generating steps:
 **********************************************************************
 
 2025-02-18 22:27:48,978 - DEBUG - Steps generated successfully
+2025-02-19 01:27:46,567 - INFO - Successfully initialized tiktoken with gpt-3.5-turbo encoding
+2025-02-19 01:27:57,599 - DEBUG - Optimize button clicked
+2025-02-19 01:27:57,600 - DEBUG - Processing prompt: create a story about a girl that moves to mars.
+2025-02-19 01:27:57,604 - DEBUG - Steps generated successfully
+2025-02-19 01:28:20,282 - DEBUG - Optimize button clicked
+2025-02-19 01:28:20,283 - DEBUG - Processing prompt: fix the handlers for step 5
+2025-02-19 01:28:20,283 - DEBUG - Processing file: C:/Users/sethk/OneDrive/Documents/xaix/Python_Sentinel_Risk/app/templates/rcsa/step5_review.html
+2025-02-19 01:28:20,295 - DEBUG - Steps generated successfully
+2025-02-19 01:30:14,219 - INFO - Successfully initialized tiktoken with gpt-3.5-turbo encoding
+2025-02-19 01:30:52,246 - INFO - Successfully initialized tiktoken with gpt-3.5-turbo encoding
+2025-02-19 01:31:15,448 - DEBUG - Optimize button clicked
+2025-02-19 01:31:15,449 - DEBUG - Processing prompt: Review this calculator code and suggest improvements
+2025-02-19 01:31:15,449 - DEBUG - Processing file: C:/Users/sethk/OneDrive/Documents/tokenizerv2/test_code.py
+2025-02-19 01:31:15,452 - DEBUG - Steps generated successfully
+2025-02-19 01:31:57,479 - INFO - Successfully initialized tiktoken with gpt-3.5-turbo encoding
+2025-02-19 01:32:06,844 - DEBUG - Optimize button clicked
+2025-02-19 01:32:06,844 - DEBUG - Processing prompt: Review this calculator code and suggest improvements
+2025-02-19 01:32:06,844 - DEBUG - Processing file: C:/Users/sethk/OneDrive/Documents/tokenizerv2/test_code.py
+2025-02-19 01:32:06,846 - DEBUG - Extracted 1 code blocks from C:/Users/sethk/OneDrive/Documents/tokenizerv2/test_code.py
+2025-02-19 01:32:06,851 - DEBUG - Steps generated successfully
+2025-02-19 01:33:46,427 - INFO - Successfully initialized tiktoken with gpt-3.5-turbo encoding
+2025-02-19 01:34:22,461 - DEBUG - Optimize button clicked
+2025-02-19 01:34:22,461 - DEBUG - Processing prompt: Review this calculator code and suggest improvements
+2025-02-19 01:34:22,462 - DEBUG - Processing file: C:/Users/sethk/OneDrive/Documents/tokenizerv2/styles.css
+2025-02-19 01:34:22,463 - DEBUG - Extracted 8 code blocks from C:/Users/sethk/OneDrive/Documents/tokenizerv2/styles.css (.css file)
+2025-02-19 01:34:22,467 - DEBUG - Steps generated successfully
+2025-02-19 01:34:53,098 - DEBUG - Optimize button clicked
+2025-02-19 01:34:53,098 - DEBUG - Processing prompt: Review this calculator code and suggest improvements
+2025-02-19 01:34:53,099 - DEBUG - Processing file: C:/Users/sethk/OneDrive/Documents/tokenizerv2/test.html
+2025-02-19 01:34:53,100 - DEBUG - Extracted 7 code blocks from C:/Users/sethk/OneDrive/Documents/tokenizerv2/test.html (.html file)
+2025-02-19 01:34:53,101 - DEBUG - Steps generated successfully

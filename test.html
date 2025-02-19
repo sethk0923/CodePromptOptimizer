@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Page</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page</h1>
+        <template id="user-template">
+            <div class="user-card">
+                <h2>User Profile</h2>
+                <slot name="user-name"></slot>
+            </div>
+        </template>
+    </div>
+
+    <script>
+        function greetUser(name) {
+            console.log(`Hello, ${name}!`);
+        }
+
+        class UserCard extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+        }
+
+        customElements.define('user-card', UserCard);
+    </script>
+</body>
+</html> 

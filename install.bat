@@ -3,37 +3,52 @@ echo Installing Code Prompt Optimizer...
 echo.
 
 :: Check if Python is installed
-python --version > nul 2>&1
+python --version >nul 2>&1
 if errorlevel 1 (
-    echo Python is not installed! Please install Python 3.7 or newer from python.org
-    echo Press any key to exit...
-    pause > nul
+    echo Python is not installed! Please install Python 3.8 or higher.
+    echo Visit: https://www.python.org/downloads/
+    pause
     exit /b 1
 )
 
-:: Create and activate virtual environment
-echo Creating virtual environment...
-python -m venv venv
-call venv\Scripts\activate.bat
+:: Check if pip is installed
+pip --version >nul 2>&1
+if errorlevel 1 (
+    echo pip is not installed! Please install pip.
+    echo Visit: https://pip.pypa.io/en/stable/installation/
+    pause
+    exit /b 1
+)
 
-:: Install required packages
+:: Install requirements
 echo Installing required packages...
-python -m pip install --upgrade pip
 pip install -r requirements.txt
+if errorlevel 1 (
+    echo Failed to install requirements!
+    pause
+    exit /b 1
+)
 
-:: Install NLTK data
+:: Download NLTK data
 echo Downloading NLTK data...
 python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+if errorlevel 1 (
+    echo Failed to download NLTK data!
+    pause
+    exit /b 1
+)
 
-:: Create executable
-echo Creating executable...
-pyinstaller --onefile --windowed --icon=icon.ico --name=CodePromptOptimizer token_script_v2.py
-
-:: Copy executable to Desktop
-echo Copying executable to Desktop...
-copy /Y "dist\CodePromptOptimizer.exe" "%USERPROFILE%\Desktop\"
+:: Run setup
+echo Running setup...
+python setup.py install
+if errorlevel 1 (
+    echo Failed to run setup!
+    pause
+    exit /b 1
+)
 
 echo.
-echo Installation complete! You can find CodePromptOptimizer.exe on your Desktop.
-echo Press any key to exit...
-pause > nul
+echo Installation completed successfully!
+echo To start the application, run: python token_script_v2.py
+echo.
+pause
