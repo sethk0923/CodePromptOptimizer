@@ -214,7 +214,7 @@ exe = EXE(
 app = BUNDLE(
     exe,
     name='CodePromptOptimizer.app',
-    icon=None,
+    icon='icon.icns',
     bundle_identifier='com.codepromptoptimizer'
 )
 """
@@ -249,4 +249,4 @@ def main():
         print("Please use the Python version installer for Linux systems.")
 
 if __name__ == "__main__":
-    main() 
+    main()

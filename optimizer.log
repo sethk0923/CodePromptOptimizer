@@ -182,3 +182,50 @@ ERROR:root:Error generating steps:
 2025-02-19 01:34:53,099 - DEBUG - Processing file: C:/Users/sethk/OneDrive/Documents/tokenizerv2/test.html
 2025-02-19 01:34:53,100 - DEBUG - Extracted 7 code blocks from C:/Users/sethk/OneDrive/Documents/tokenizerv2/test.html (.html file)
 2025-02-19 01:34:53,101 - DEBUG - Steps generated successfully
+2025-02-19 21:29:50,802 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-02-19 21:29:50,925 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2025-02-19 21:29:50,930 - DEBUG - Attempting to acquire lock 2520836797200 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\be4d21d94f3b4687e5a54d84bf6ab46ed0f8defd.lock
+2025-02-19 21:29:50,931 - DEBUG - Lock 2520836797200 acquired on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\be4d21d94f3b4687e5a54d84bf6ab46ed0f8defd.lock
+2025-02-19 21:29:51,047 - DEBUG - https://huggingface.co:443 "GET /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 26
+2025-02-19 21:29:51,071 - DEBUG - Attempting to release lock 2520836797200 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\be4d21d94f3b4687e5a54d84bf6ab46ed0f8defd.lock
+2025-02-19 21:29:51,071 - DEBUG - Lock 2520836797200 released on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\be4d21d94f3b4687e5a54d84bf6ab46ed0f8defd.lock
+2025-02-19 21:29:51,128 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/vocab.json HTTP/1.1" 200 0
+2025-02-19 21:29:51,131 - DEBUG - Attempting to acquire lock 2520836837280 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\1f1d9aaca301414e7f6c9396df506798ff4eb9a6.lock
+2025-02-19 21:29:51,131 - DEBUG - Lock 2520836837280 acquired on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\1f1d9aaca301414e7f6c9396df506798ff4eb9a6.lock
+2025-02-19 21:29:51,192 - DEBUG - https://huggingface.co:443 "GET /gpt2/resolve/main/vocab.json HTTP/1.1" 200 1042301
+2025-02-19 21:29:51,290 - DEBUG - Attempting to release lock 2520836837280 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\1f1d9aaca301414e7f6c9396df506798ff4eb9a6.lock
+2025-02-19 21:29:51,291 - DEBUG - Lock 2520836837280 released on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\1f1d9aaca301414e7f6c9396df506798ff4eb9a6.lock
+2025-02-19 21:29:51,347 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/merges.txt HTTP/1.1" 200 0
+2025-02-19 21:29:51,350 - DEBUG - Attempting to acquire lock 2520853758256 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\226b0752cac7789c48f0cb3ec53eda48b7be36cc.lock
+2025-02-19 21:29:51,350 - DEBUG - Lock 2520853758256 acquired on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\226b0752cac7789c48f0cb3ec53eda48b7be36cc.lock
+2025-02-19 21:29:51,414 - DEBUG - https://huggingface.co:443 "GET /gpt2/resolve/main/merges.txt HTTP/1.1" 200 456318
+2025-02-19 21:29:51,454 - DEBUG - Attempting to release lock 2520853758256 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\226b0752cac7789c48f0cb3ec53eda48b7be36cc.lock
+2025-02-19 21:29:51,455 - DEBUG - Lock 2520853758256 released on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\226b0752cac7789c48f0cb3ec53eda48b7be36cc.lock
+2025-02-19 21:29:51,510 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2025-02-19 21:29:51,576 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2025-02-19 21:29:51,634 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer.json HTTP/1.1" 200 0
+2025-02-19 21:29:51,637 - DEBUG - Attempting to acquire lock 2520836837280 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\4b988bccc9dc5adacd403c00b4704976196548f8.lock
+2025-02-19 21:29:51,638 - DEBUG - Lock 2520836837280 acquired on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\4b988bccc9dc5adacd403c00b4704976196548f8.lock
+2025-02-19 21:29:51,706 - DEBUG - https://huggingface.co:443 "GET /gpt2/resolve/main/tokenizer.json HTTP/1.1" 200 1355256
+2025-02-19 21:29:51,775 - DEBUG - Attempting to release lock 2520836837280 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\4b988bccc9dc5adacd403c00b4704976196548f8.lock
+2025-02-19 21:29:51,776 - DEBUG - Lock 2520836837280 released on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\4b988bccc9dc5adacd403c00b4704976196548f8.lock
+2025-02-19 21:29:51,839 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/chat_template.jinja HTTP/1.1" 404 0
+2025-02-19 21:29:51,917 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/config.json HTTP/1.1" 200 0
+2025-02-19 21:29:51,919 - DEBUG - Attempting to acquire lock 2520854527952 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\10c66461e4c109db5a2196bff4bb59be30396ed8.lock
+2025-02-19 21:29:51,920 - DEBUG - Lock 2520854527952 acquired on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\10c66461e4c109db5a2196bff4bb59be30396ed8.lock
+2025-02-19 21:29:51,989 - DEBUG - https://huggingface.co:443 "GET /gpt2/resolve/main/config.json HTTP/1.1" 200 665
+2025-02-19 21:29:52,000 - DEBUG - Attempting to release lock 2520854527952 on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\10c66461e4c109db5a2196bff4bb59be30396ed8.lock
+2025-02-19 21:29:52,001 - DEBUG - Lock 2520854527952 released on C:\Users\sethk\.cache\huggingface\hub\.locks\models--gpt2\10c66461e4c109db5a2196bff4bb59be30396ed8.lock
+2025-02-19 21:29:52,106 - INFO - Successfully initialized GPT-2 tokenizer
+2025-02-19 21:29:56,124 - DEBUG - Optimize button clicked
+2025-02-19 21:29:56,124 - DEBUG - Processing prompt: dssadsaf
+2025-02-19 21:29:56,195 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2025-02-19 21:29:56,264 - INFO - Successfully initialized GPT-2 tokenizer
+2025-02-19 21:29:56,324 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2025-02-19 21:29:56,389 - INFO - Successfully initialized GPT-2 tokenizer
+2025-02-19 21:29:56,455 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2025-02-19 21:29:56,521 - INFO - Successfully initialized GPT-2 tokenizer
+2025-02-19 21:29:56,526 - DEBUG - Steps generated successfully
+2025-02-19 21:52:14,776 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-02-19 21:52:14,919 - DEBUG - https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2025-02-19 21:52:15,030 - INFO - Successfully initialized GPT-2 tokenizer

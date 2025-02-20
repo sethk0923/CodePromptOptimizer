@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog, scrolledtext, messagebox
-import tiktoken
 import os
+import sys
+import subprocess
 import requests
 import logging
 import re
@@ -9,7 +10,7 @@ from nltk.corpus import stopwords
 from typing import List
 
 # Set up logging
-logging.basicConfig(filename=os.path.join(os.path.expanduser("~"), 'optimizer.log'), level=logging.DEBUG,
+logging.basicConfig(filename='optimizer.log', level=logging.DEBUG,
                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Constants
@@ -17,68 +18,50 @@ DEFAULT_MODEL = "gpt-3.5-turbo"
 MAX_TOKEN_LIMIT = 130_000
 MAX_TOKENS_PER_STEP = 500
 
-def initialize_tiktoken():
-    """Initialize tiktoken with robust fallback and diagnostics."""
-    try:
-        # First attempt: Use model-specific encoding
-        enc = tiktoken.encoding_for_model('gpt-3.5-turbo')
-        logging.info("Successfully initialized tiktoken with gpt-3.5-turbo encoding")
-        return enc
-    except Exception as e1:
-        logging.warning(f"Failed to load gpt-3.5-turbo encoding: {str(e1)}")
-        try:
-            # Second attempt: Directly load cl100k_base
-            enc = tiktoken.get_encoding("cl100k_base")
-            logging.info("Successfully initialized tiktoken with cl100k_base encoding")
-            return enc
-        except Exception as e2:
-            logging.warning(f"Failed to load cl100k_base encoding: {str(e2)}")
-            # Check if cache directory exists and is writable
-            cache_dir = os.path.join(os.path.expanduser("~"), ".cache", "tiktoken")
-            try:
-                os.makedirs(cache_dir, exist_ok=True)
-                if not os.access(cache_dir, os.W_OK):
-                    raise PermissionError(f"Cache directory {cache_dir} is not writable")
-                logging.info(f"Cache directory verified: {cache_dir}")
-                
-                # Attempt to download the encoding file
-                registry_url = "https://openaipublic.blob.core.windows.net/encodings/cl100k_base.tiktoken"
-                response = requests.get(registry_url, timeout=10)
-                response.raise_for_status()  # Raise exception for bad status codes
-                encoding_file = os.path.join(cache_dir, "cl100k_base.tiktoken")
-                with open(encoding_file, "wb") as f:
-                    f.write(response.content)
-                logging.info(f"Downloaded cl100k_base.tiktoken to {encoding_file}")
-                
-                # Try loading again after download
-                enc = tiktoken.get_encoding("cl100k_base")
-                logging.info("Successfully initialized tiktoken after downloading cl100k_base")
-                return enc
-            except requests.RequestException as e3:
-                logging.error(f"Failed to download cl100k_base.tiktoken: {str(e3)}")
-                error_msg = "Failed to download tiktoken encoding.\n"
-                error_msg += "Check your internet connection or try:\n"
-                error_msg += "pip install --force-reinstall tiktoken==0.8.0"
-            except PermissionError as e4:
-                logging.error(f"Permission error: {str(e4)}")
-                error_msg = f"Permission denied writing to {cache_dir}.\n"
-                error_msg += "Run the app with elevated privileges or change the cache location."
-    except Exception as e5:
-        logging.error(f"Unexpected error after download attempt: {str(e5)}")
-        error_msg = "Failed to initialize tiktoken.\n"
-        error_msg += "Try: pip uninstall tiktoken && pip install tiktoken==0.8.0"
+# Try to install required packages
+try:
+    from transformers import GPT2Tokenizer
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "transformers"])
+    from transformers import GPT2Tokenizer
 
-        messagebox.showerror("Tiktoken Error", error_msg)
-        raise Exception("Tiktoken initialization failed") from e5
+try:
+    import nltk
+    nltk.download('punkt')
+    nltk.download('stopwords')
+    nltk.download('averaged_perceptron_tagger')
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "nltk"])
+    import nltk
+    nltk.download('punkt')
+    nltk.download('stopwords')
+    nltk.download('averaged_perceptron_tagger')
+
+def initialize_tokenizer():
+    """Initialize GPT-2 tokenizer with fallback."""
+    try:
+        # Try to load GPT-2 tokenizer
+        tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+        logging.info("Successfully initialized GPT-2 tokenizer")
+        return tokenizer
+    except Exception as e:
+        error_msg = f"Failed to initialize tokenizer.\n\nError: {str(e)}\n\nFalling back to basic word tokenization."
+        logging.error(error_msg)
+        messagebox.showwarning("Tokenizer Warning", error_msg)
+        return None
 
 def tokenize(text: str) -> int:
     """Count tokens in the given text."""
     try:
-        enc = tiktoken.get_encoding("cl100k_base")
-        return len(enc.encode(text))
+        # Try to use GPT-2 tokenizer
+        tokenizer = initialize_tokenizer()
+        if tokenizer is not None:
+            return len(tokenizer.encode(text))
     except Exception as e:
         logging.error(f"Token counting failed: {str(e)}")
-        return len(text.split())  # Fallback to word count
+    
+    # Fallback to word count
+    return len(text.split())
 
 def optimize_text(text: str, is_code: bool = False) -> str:
     """Optimizes text or preserves code structure while reducing tokens."""
@@ -312,7 +295,7 @@ class TokenizerGUI:
         master.geometry("800x600")
         
         try:
-            self.encoder = initialize_tiktoken()
+            self.tokenizer = initialize_tokenizer()
         except Exception as e:
             logging.error(f"Failed to initialize tokenizer: {str(e)}")
             messagebox.showerror("Error", f"Failed to initialize tokenizer: {str(e)}")
@@ -384,4 +367,4 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
-    main()
+    main() 

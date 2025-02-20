@@ -25,7 +25,7 @@ fi
 
 # Create the installer
 echo "Creating installer..."
-python3 create_installers.py || {
+python3 create_installers.py --icon=../../assets/icon.ico || {
     echo "Failed to create installer!"
     exit 1
 }
@@ -38,4 +38,4 @@ echo
 # Make the installer executable
 if [ -f "macos/output/CodePromptOptimizer.app" ]; then
     chmod +x "macos/output/CodePromptOptimizer.app/Contents/MacOS/CodePromptOptimizer"
-fi 
+fi

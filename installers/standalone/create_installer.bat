@@ -26,19 +26,20 @@ if errorlevel 1 (
     )
 )
 
-:: Check if NSIS is installed
-makensis /VERSION >nul 2>&1
-if errorlevel 1 (
+:: Check if NSIS is installed and set the path
+if exist "C:\Program Files (x86)\NSIS\makensis.exe" (
+    set "NSIS_EXE=C:\Program Files (x86)\NSIS\makensis.exe"
+) else (
     echo Error: NSIS is not installed!
     echo Please download and install NSIS from https://nsis.sourceforge.io/Download
-    echo Make sure to add NSIS to your system PATH
     pause
     exit /b 1
 )
 
 :: Create the installer
 echo Creating installer...
-python create_installers.py
+set "PATH=C:\Program Files (x86)\NSIS;%PATH%"
+python create_installers.py --icon=../../assets/icon.ico
 if errorlevel 1 (
     echo Failed to create installer!
     pause
@@ -49,4 +50,4 @@ echo.
 echo Installer creation completed!
 echo Check the windows/output directory for the installer.
 echo.
-pause 
+pause
