@@ -37,6 +37,32 @@ except ImportError:
     nltk.download('stopwords')
     nltk.download('averaged_perceptron_tagger')
 
+def get_nltk_data_path():
+    """Get the NLTK data path, handling both development and PyInstaller environments."""
+    if getattr(sys, 'frozen', False):
+        # Running in PyInstaller bundle
+        return os.path.join(sys._MEIPASS)
+    else:
+        # Running in normal Python environment
+        return nltk.data.path[0]
+
+def initialize_nltk():
+    """Initialize NLTK with the correct data path."""
+    try:
+        nltk_path = get_nltk_data_path()
+        nltk.data.path = [nltk_path]
+        
+        # Download required NLTK data if not in frozen environment
+        if not getattr(sys, 'frozen', False):
+            nltk.download('punkt')
+            nltk.download('stopwords')
+            nltk.download('averaged_perceptron_tagger')
+        
+        return True
+    except Exception as e:
+        logging.error(f"Failed to initialize NLTK: {str(e)}")
+        return False
+
 def initialize_tokenizer():
     """Initialize GPT-2 tokenizer with fallback."""
     try:
@@ -362,6 +388,10 @@ class TokenizerGUI:
             self.output_text.insert(tk.END, f"Error: {str(e)}\n")
 
 def main():
+    if not initialize_nltk():
+        messagebox.showerror("Error", "Failed to initialize NLTK data. The application may not work correctly.")
+        return
+        
     root = tk.Tk()
     app = TokenizerGUI(root)
     root.mainloop()
