@@ -1,101 +1,106 @@
 # Code Prompt Optimizer
 
-A powerful tool for optimizing code prompts and tokenization, with support for multiple programming languages including Python, JavaScript, HTML, CSS, TypeScript, and Java.
+A powerful tool for optimizing code prompts and managing token limits for large language model interactions.
 
 ## Features
 
-- Multi-language code block recognition
-- Intelligent token optimization
-- Support for large files and code blocks
-- GUI interface for easy interaction
-- Automatic token counting and optimization
-- Support for HTML, CSS, JavaScript, TypeScript, Python, and Java
-
-## Requirements
-
-- Python 3.8 or higher
-- pip (Python package installer)
-- Windows, macOS, or Linux operating system
+- **Token Management**: Automatically splits large prompts into manageable chunks within token limits
+- **Code Block Handling**: Intelligently processes code blocks from various programming languages
+- **Support for Multiple Languages**: Handles Python, JavaScript, HTML, CSS, and plain text files
+- **Token Counting**: Real-time token counting for prompt optimization
+- **GUI Interface**: User-friendly graphical interface for easy interaction
+- **NLTK Integration**: Advanced text processing capabilities
 
 ## Installation
 
-### Quick Installation (Recommended)
+### Option 1: Running the Executable (Windows)
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/code-prompt-optimizer.git
-   cd code-prompt-optimizer
-   ```
+1. Download `CodePromptOptimizer.exe` from the `dist` directory
+2. Double-click the executable to run the application
+3. No additional installation or dependencies required
 
-2. Run the setup script:
-   ```bash
-   python setup.py install
-   ```
+### Option 2: Running from Source
 
-This will automatically:
-- Install all required packages
-- Download necessary NLTK data
-- Set up the application
-
-### Manual Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/code-prompt-optimizer.git
-   cd code-prompt-optimizer
-   ```
-
+1. Ensure Python 3.9+ is installed
 2. Install required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install tiktoken==0.9.0 nltk transformers
    ```
-
-3. Download NLTK data:
-   ```python
-   python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
-   ```
-
-## Usage
-
-1. Start the application:
+3. Run the script:
    ```bash
    python token_script_v2.py
    ```
 
-2. In the GUI:
-   - Enter your prompt in the text area
-   - (Optional) Select a code file to analyze
-   - Click "Optimize Steps" to process
+## Usage
+
+1. **Launch the Application**
+   - Run `CodePromptOptimizer_v2.exe` or execute `token_script_v2.py`
+   - A window will appear with the GUI interface
+
+2. **Enter Your Prompt**
+   - Type or paste your prompt text in the upper text box
+   - The prompt can include natural language and code snippets
+
+3. **Optional: Include Code Files**
+   - Click "Browse" to select a code file
+   - Supported file types: .py, .js, .html, .css, .txt
+   - The tool will automatically extract relevant code blocks
+
+4. **Generate Optimized Steps**
+   - Click "Optimize Steps" to process your input
+   - The tool will split the content into token-optimized chunks
+   - Each chunk will be displayed with its token count
+
+## Token Limits
+
+- Maximum total tokens: 2500
+- Maximum tokens per step: 500
+- The tool automatically manages these limits
+
+## Code Block Processing
+
+The optimizer handles different file types with specialized processing:
+- **Python**: Functions and classes
+- **JavaScript**: Functions and classes
+- **HTML**: Script tags, style tags, and HTML elements
+- **CSS**: Rules, media queries, and keyframes
+- **Text**: Line-by-line processing
 
 ## Troubleshooting
 
-### Common Issues
+1. **GUI Not Appearing**
+   - Ensure no other instances are running
+   - Check for sufficient system resources
 
-1. **Tiktoken Installation Issues**
-   ```bash
-   pip uninstall tiktoken
-   pip install tiktoken==0.8.0
-   ```
+2. **File Processing Issues**
+   - Verify file permissions
+   - Ensure file is in a supported format
+   - Check file encoding (UTF-8 recommended)
 
-2. **NLTK Data Missing**
-   ```python
-   python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
-   ```
+3. **Token Counting Discrepancies**
+   - Different tokenizers may produce slightly different results
+   - The tool uses a basic word-splitting approach for estimation
 
-3. **GUI Issues**
-   - Ensure Tkinter is installed:
-     ```bash
-     pip install tk
-     ```
+## Technical Details
 
-### Error Logs
-
-Check `optimizer.log` in the application directory for detailed error messages and debugging information.
+- Built with Python 3.9
+- Uses Tkinter for GUI
+- NLTK for text processing
+- Regular expressions for code block extraction
+- Token counting based on word splitting
 
 ## License
 
-MIT License - See LICENSE file for details.
+This tool is provided as-is for personal and commercial use.
 
-## Contributing
+## Support
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+For issues or questions:
+1. Check the troubleshooting section
+2. Verify your input meets the format requirements
+3. Ensure all dependencies are correctly installed
+
+## Version History
+
+- v2.0: Added NLTK integration, improved code block handling
+- v1.0: Initial release with basic token management

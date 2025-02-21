@@ -1,0 +1,41 @@
+Code Prompt Optimizer - Quick Start Guide
+=====================================
+
+Getting Started
+--------------
+1. Double-click 'CodePromptOptimizer.exe' to launch the application
+2. Wait a few seconds for the window to appear
+
+Basic Usage
+----------
+1. Type or paste your prompt into the top text box
+2. (Optional) Click "Browse" to include a code file
+3. Click "Optimize Steps" to process your input
+4. View the optimized output in the bottom text box
+
+Supported File Types
+------------------
+- Python (.py)
+- JavaScript (.js)
+- HTML (.html)
+- CSS (.css)
+- Text (.txt)
+
+Token Limits
+-----------
+- Maximum total tokens: 2,500
+- Maximum tokens per step: 500
+
+Tips
+----
+- For best results, use UTF-8 encoded text files
+- Large code files will be automatically split into manageable chunks
+- Each output step shows its token count for easy reference
+
+Need Help?
+---------
+- Check README.md for detailed instructions
+- Ensure no other instances are running
+- Verify file permissions if using code files
+
+Note: This is a standalone executable - no installation required! 
