@@ -1,8 +1,8 @@
-# Code Prompt Optimizer v3 - Upgrade Summary
+# Code Prompt Optimizer v2 - Upgrade Summary
 
 ## Overview
 
-This document summarizes all the upgrades and enhancements made to the Code Prompt Optimizer application as part of the v3 upgrade project. The upgrade was completed on March 06, 2025, and all planned features have been successfully implemented.
+This document summarizes all the upgrades and enhancements made to the Code Prompt Optimizer application as part of the v2 upgrade project. The upgrade was completed on March 06, 2025, and all planned features have been successfully implemented.
 
 ## Major Enhancements
 
@@ -109,4 +109,4 @@ This document summarizes all the upgrades and enhancements made to the Code Prom
 
 ## Conclusion
 
-The Code Prompt Optimizer v3 represents a significant upgrade from the previous version, with improvements in core functionality, user interface, and deployment options. All planned features have been successfully implemented, and the application is now ready for use as a standalone tool for optimizing code prompts for AI interactions. 
+The Code Prompt Optimizer v2 represents a significant upgrade from the previous version, with improvements in core functionality, user interface, and deployment options. All planned features have been successfully implemented, and the application is now ready for use as a standalone tool for optimizing code prompts for AI interactions. 
