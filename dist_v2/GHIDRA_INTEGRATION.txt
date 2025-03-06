@@ -1,0 +1,80 @@
+# Ghidra Integration for Code Prompt Optimizer v2
+
+This document provides detailed instructions for setting up and using the Ghidra integration in the Code Prompt Optimizer v2.
+
+## What is Ghidra?
+
+Ghidra is a software reverse engineering (SRE) framework developed by the National Security Agency (NSA). It provides powerful binary analysis capabilities including disassembly, decompilation, and more. The Code Prompt Optimizer uses Ghidra's headless analyzer to provide enhanced insights into binary files.
+
+## Installation
+
+1. Download Ghidra from the official website: https://ghidra-sre.org/
+2. Install Ghidra by extracting the archive to a permanent location.
+   - Recommended locations:
+     - Windows: `C:\Program Files\Ghidra` or `C:\Ghidra`
+     - Linux: `/opt/ghidra` or `/usr/local/ghidra`
+     - macOS: `/Applications/Ghidra` or `~/ghidra`
+
+## Configuration
+
+There are two ways to configure the Code Prompt Optimizer to find your Ghidra installation:
+
+### Method 1: Add Ghidra to your PATH (Recommended)
+
+1. Locate the `analyzeHeadless` script in your Ghidra installation:
+   - Windows: `<Ghidra Installation>\support\analyzeHeadless.bat`
+   - Linux/macOS: `<Ghidra Installation>/support/analyzeHeadless`
+
+2. Add the directory containing this script to your system PATH:
+   - Windows:
+     - Open System Properties > Advanced > Environment Variables
+     - Edit the PATH variable and add the full path to Ghidra's support directory
+     - Example: `C:\Program Files\Ghidra\support`
+
+   - Linux/macOS:
+     - Add to ~/.bashrc or ~/.zshrc: `export PATH="$PATH:/path/to/ghidra/support"`
+     - Apply with: `source ~/.bashrc` or restart your terminal
+
+### Method 2: Set the GHIDRA_HOME Environment Variable
+
+1. Set the GHIDRA_HOME environment variable to point to your Ghidra installation directory:
+   - Windows:
+     - Open System Properties > Advanced > Environment Variables
+     - Create a new variable GHIDRA_HOME with the value of your Ghidra installation path
+     - Example: `C:\Program Files\Ghidra`
+
+   - Linux/macOS:
+     - Add to ~/.bashrc or ~/.zshrc: `export GHIDRA_HOME="/path/to/ghidra"`
+     - Apply with: `source ~/.bashrc` or restart your terminal
+
+## Usage
+
+Once configured, the Code Prompt Optimizer will automatically detect Ghidra and use it for binary analysis:
+
+1. Launch the Code Prompt Optimizer by running Run_OptimizerV2.bat
+2. Enter your prompt in the text area
+3. Use the file browser to select a binary file (.exe, .dll, .so, etc.)
+4. Click "Analyze"
+5. The application will detect it's a binary file and use Ghidra for analysis
+6. Status messages will indicate when Ghidra is being used
+7. Analysis results will include decompiled code when possible
+
+## Notes
+
+- Ghidra analysis can take 1-2 minutes for the first run on a binary file
+- Subsequent analyses of the same file will be faster
+- The analyzer creates temporary project files that are deleted after analysis
+- Binary analysis without Ghidra is still available but provides less detail
+- If analysis fails, the application will fall back to basic binary inspection
+
+## Troubleshooting
+
+If the Code Prompt Optimizer cannot find Ghidra:
+
+1. Verify that Ghidra is installed correctly
+2. Check that the analyzeHeadless script exists in the support directory
+3. Ensure your PATH or GHIDRA_HOME environment variable is set correctly
+4. Restart the application after making any configuration changes
+5. Check the application console for error messages
+
+For further assistance, consult the Ghidra documentation at https://ghidra-sre.org/
