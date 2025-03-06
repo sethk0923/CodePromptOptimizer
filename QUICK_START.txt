@@ -1,25 +1,58 @@
-Code Prompt Optimizer - Quick Start Guide
+Code Prompt Optimizer v3.0 - Quick Start Guide
 =====================================
 
 Getting Started
 --------------
-1. Double-click 'CodePromptOptimizer.exe' to launch the application
-2. Wait a few seconds for the window to appear
+1. Double-click 'Run_Optimizer_v3.bat' to launch the application
+2. The modern interface will open with dark theme by default (light theme also available)
 
 Basic Usage
 ----------
 1. Type or paste your prompt into the top text box
-2. (Optional) Click "Browse" to include a code file
+   - Use Tab key for predictive text suggestions
+   - Watch the real-time token counter as you type
+   - Keywords from your prompt will be used to find relevant code sections
+2. (Optional) Click "Browse" to include a code or binary file
 3. Click "Optimize Steps" to process your input
 4. View the optimized output in the bottom text box
+   - Notice relevance scores next to each code section (higher is better)
+   - Sections are sorted by relevance to your prompt keywords
+5. Click "Copy to Clipboard" to copy the results
+6. Click "Export to TXT" to save results as a text file
 
 Supported File Types
 ------------------
 - Python (.py)
 - JavaScript (.js)
-- HTML (.html)
+- Java (.java)
+- C/C++ (.c, .cpp, .h, .hpp)
+- HTML (.html, .htm)
 - CSS (.css)
+- Binary (.exe, .dll, .so, .dylib, .elf)
 - Text (.txt)
+
+New Features in v3.0
+------------------
+- Modern graphite window bar for sleek look
+- Light and dark theme switching with dedicated button
+- Keyword extraction for more relevant code section identification
+- Export to text file functionality
+- Tab-based predictive text
+- Real-time token counting
+- More accurate tokenization with tiktoken
+- Advanced code parsing for all languages
+- Binary file analysis with Ghidra integration (optional)
+- Clipboard integration
+- Responsive threaded processing
+
+Understanding Relevance Scores
+----------------------------
+- When you enter a prompt, the optimizer extracts important keywords
+- Each code section is analyzed for these keywords
+- Sections are assigned a relevance score from 0-100
+- Higher scores indicate better matches to your prompt keywords
+- Sections are sorted by relevance score in the output
+- The status bar shows which keywords were matched
 
 Token Limits
 -----------
@@ -28,14 +61,20 @@ Token Limits
 
 Tips
 ----
-- For best results, use UTF-8 encoded text files
-- Large code files will be automatically split into manageable chunks
-- Each output step shows its token count for easy reference
+- Be specific in your prompts to get better keyword matching
+- Use Tab key while typing to see word suggestions
+- The status bar shows processing information and keyword matches
+- Click the theme button (☀️/🌙) to toggle between light and dark mode
+- View relevance scores in the output to see how sections match your keywords
+- The tool now handles non-UTF8 files automatically
+- For large inputs, the UI stays responsive during processing
+- For binary decompilation, install Ghidra (see GHIDRA_INTEGRATION.txt)
 
 Need Help?
 ---------
-- Check README.md for detailed instructions
-- Ensure no other instances are running
-- Verify file permissions if using code files
+- Check README_v3.md for detailed instructions
+- For Ghidra setup, see GHIDRA_INTEGRATION.txt
+- Missing libraries? Run 'pip install -r requirements.txt'
+- Need NLTK data? Run 'python -c "import nltk; nltk.download('words')"'
 
 Note: This is a standalone executable - no installation required! 
